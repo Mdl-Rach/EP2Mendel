@@ -171,3 +171,18 @@ def calcula_pontos_quadra (lista_dados_rolados):
         for i in range (len(lista_dados_rolados)):
             resultado += lista_dados_rolados [i]
     return resultado
+# Questão 10
+def calcula_pontos_quina (lista_dados_rolados):
+    resultado = 0
+    j = 0
+    dicionario = {1: [], 2: [], 3: [], 4: [], 5: [], 6: []}
+    for a in range (len(lista_dados_rolados)):
+        for i in range (7):
+            if  i == lista_dados_rolados[a]:
+                for chave, lista in dicionario.items():
+                    if chave == i:
+                        lista.append(i)
+    for chave, lista in dicionario.items():
+        if len(lista) >= 5:
+            resultado = 50
+    return resultado
