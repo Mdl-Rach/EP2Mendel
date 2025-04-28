@@ -186,3 +186,21 @@ def calcula_pontos_quina (lista_dados_rolados):
         if len(lista) >= 5:
             resultado = 50
     return resultado
+# Questão 11
+def calcula_pontos_regra_avancada  (lista_dados_rolados):
+    dicionario = {}
+    cinco_iguais = calcula_pontos_quina (lista_dados_rolados)
+    full_house = calcula_pontos_full_house (lista_dados_rolados)
+    quadra = calcula_pontos_quadra (lista_dados_rolados)
+    sem_combinacao = calcula_pontos_soma (lista_dados_rolados)
+    sequencia_alta = calcula_pontos_sequencia_alta (lista_dados_rolados)
+    sequencia_baixa = calcula_pontos_sequencia_baixa (lista_dados_rolados)
+    dicionario['cinco_iguais'] = cinco_iguais
+    dicionario['full_house'] = full_house
+    dicionario['quadra'] = quadra
+    dicionario['sem_combinacao'] = sem_combinacao
+    dicionario['sequencia_alta'] = sequencia_alta
+    dicionario['sequencia_baixa'] = sequencia_baixa
+    return dicionario
+
+    
