@@ -153,5 +153,21 @@ def calcula_pontos_full_house (lista_dados_rolados):
         for i in range (len(lista_dados_rolados)):
             resultado += lista_dados_rolados [i]
     return resultado
-
-
+# Questão 9
+def calcula_pontos_quadra (lista_dados_rolados):
+    resultado = 0
+    j = 0
+    dicionario = {1: [], 2: [], 3: [], 4: [], 5: [], 6: []}
+    for a in range (len(lista_dados_rolados)):
+        for i in range (7):
+            if  i == lista_dados_rolados[a]:
+                for chave, lista in dicionario.items():
+                    if chave == i:
+                        lista.append(i)
+    for chave, lista in dicionario.items():
+        if len(lista) >= 4:
+            j = 1
+    if j == 1:
+        for i in range (len(lista_dados_rolados)):
+            resultado += lista_dados_rolados [i]
+    return resultado
