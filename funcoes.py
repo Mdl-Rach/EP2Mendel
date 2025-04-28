@@ -75,3 +75,9 @@ def calcula_pontos_regra_simples (lista_dados_rolados):
     rascunho = [0]
     resultado = 0
     return dicionario
+# Questão 5
+def calcula_pontos_soma (lista_dados_rolados):
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        resultado += lista_dados_rolados[i]
+    return resultado
