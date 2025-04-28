@@ -125,3 +125,33 @@ def calcula_pontos_sequencia_alta (lista_dados_rolados):
                 x = 0
                 break
     return x
+# Questão 8
+def calcula_pontos_full_house (lista_dados_rolados):
+    lista_a = [lista_dados_rolados[0]]
+    lista_b = []
+    resultado = 0
+    i = 1
+    while i < (len(lista_dados_rolados)):
+        if lista_dados_rolados [i] == lista_a [0]:
+            lista_a.append(lista_dados_rolados[i])
+        elif lista_b == []:
+            lista_b.append(lista_dados_rolados[i])
+        elif lista_dados_rolados [i] == lista_b [0]:
+            lista_b.append(lista_dados_rolados[i])
+        else:
+            x = 0
+            break
+        i += 1
+    if len(lista_a) < 2 or len(lista_a) > 3:
+        return 0
+    if len(lista_b) < 2 or len(lista_b) > 3: 
+        return 0
+    if len(lista_a) == 2 and len(lista_b) == 3:
+        for i in range (len(lista_dados_rolados)):
+            resultado += lista_dados_rolados [i]
+    if len(lista_b) == 2 and len(lista_a) == 3:
+        for i in range (len(lista_dados_rolados)):
+            resultado += lista_dados_rolados [i]
+    return resultado
+
+
