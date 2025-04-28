@@ -202,5 +202,15 @@ def calcula_pontos_regra_avancada  (lista_dados_rolados):
     dicionario['sequencia_alta'] = sequencia_alta
     dicionario['sequencia_baixa'] = sequencia_baixa
     return dicionario
-
-    
+# Questão 12
+def faz_jogada (lista_dados, categoria, cartela):
+    for i in range (7):
+        if categoria == f'{i}':
+            categoria = i
+    dicio_avancada = calcula_pontos_regra_avancada(lista_dados)
+    dicio_simples = calcula_pontos_regra_simples(lista_dados)
+    if categoria in dicio_simples:
+        cartela['regra_simples'][categoria] = dicio_simples[categoria]
+    if categoria in dicio_avancada:
+        cartela['regra_avancada'][categoria] = dicio_avancada[categoria]
+    return cartela
