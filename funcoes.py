@@ -107,3 +107,21 @@ def calcula_pontos_sequencia_baixa (lista_dados_rolados):
                 x = 0
                 break
     return x
+# Questão 7
+def calcula_pontos_sequencia_alta (lista_dados_rolados):
+    comb_1 = [1, 2, 3, 4, 5]
+    comb_2 = [2, 3, 4, 5, 6]
+    for i in range (len(comb_1)):
+        if comb_1[i] in lista_dados_rolados:
+            x = 30
+        else:
+            x = 0
+            break
+    if x == 0:
+        for i in range (len(comb_2)):
+            if comb_2[i] in lista_dados_rolados:
+                x = 30
+            else:
+                x = 0
+                break
+    return x
