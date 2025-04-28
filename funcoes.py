@@ -81,3 +81,29 @@ def calcula_pontos_soma (lista_dados_rolados):
     for i in range (len(lista_dados_rolados)):
         resultado += lista_dados_rolados[i]
     return resultado
+# Questão 6
+def calcula_pontos_sequencia_baixa (lista_dados_rolados):
+    comb_1 = [1, 2, 3, 4]
+    comb_2 = [2, 3, 4, 5]
+    comb_3 = [3, 4, 5, 6]
+    for i in range (len(comb_1)):
+        if comb_1[i] in lista_dados_rolados:
+            x = 15
+        else:
+            x = 0
+            break
+    if x == 0:
+        for i in range (len(comb_2)):
+            if comb_2[i] in lista_dados_rolados:
+                x = 15
+            else:
+                x = 0
+                break
+    if x == 0:
+        for i in range (len(comb_3)):
+            if comb_3[i] in lista_dados_rolados:
+                x = 15
+            else:
+                x = 0
+                break
+    return x
