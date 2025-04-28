@@ -214,3 +214,4 @@ def faz_jogada (lista_dados, categoria, cartela):
     if categoria in dicio_avancada:
         cartela['regra_avancada'][categoria] = dicio_avancada[categoria]
     return cartela
+# Questão 13
