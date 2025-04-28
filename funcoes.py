@@ -21,3 +21,57 @@ def remover_dado (lista_dados_rolados, lista_dados_guardados, n_dado):
     lista_final.append(lista_dados_rolados)
     lista_final.append(lista_dados_guardados)
     return lista_final
+# Questão 4
+def calcula_pontos_regra_simples (lista_dados_rolados):
+    dicionario = {}
+    rascunho = [0]
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        if lista_dados_rolados[i] == 1:
+            rascunho.append(lista_dados_rolados[i])
+    for a in range (len(rascunho)):
+        resultado += rascunho[a]
+        dicionario[1] = resultado
+    rascunho = [0]
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        if lista_dados_rolados[i] == 2:
+            rascunho.append(lista_dados_rolados[i])
+    for a in range (len(rascunho)):
+        resultado += rascunho[a]
+        dicionario[2] = resultado
+    rascunho = [0]
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        if lista_dados_rolados[i] == 3:
+            rascunho.append(lista_dados_rolados[i])
+    for a in range (len(rascunho)):
+        resultado += rascunho[a]
+        dicionario[3] = resultado
+    rascunho = [0]
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        if lista_dados_rolados[i] == 4:
+            rascunho.append(lista_dados_rolados[i])
+    for a in range (len(rascunho)):
+        resultado += rascunho[a]
+        dicionario[4] = resultado
+    rascunho = [0]
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        if lista_dados_rolados[i] == 5:
+            rascunho.append(lista_dados_rolados[i])
+    for a in range (len(rascunho)):
+        resultado += rascunho[a]
+        dicionario[5] = resultado
+    rascunho = [0]
+    resultado = 0
+    for i in range (len(lista_dados_rolados)):
+        if lista_dados_rolados[i] == 6:
+            rascunho.append(lista_dados_rolados[i])
+    for a in range (len(rascunho)):
+        resultado += rascunho[a]
+        dicionario[6] = resultado
+    rascunho = [0]
+    resultado = 0
+    return dicionario
