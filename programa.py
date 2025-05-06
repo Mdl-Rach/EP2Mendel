@@ -20,6 +20,7 @@ cartela = {
 lista_categorias = ['1','2','3','4','5','6','sem_combinacao','quadra','full_house','sequencia_baixa','sequencia_alta','cinco_iguais']
 rodada = 1
 lista_dados = [0, 0, 0, 0, 0]
+lista_n_2 = ['1', '2', '3', '4', '5', '6']
 lista_n = [1, 2, 3, 4, 5, 6]
 lista_x = ['sem_combinacao','quadra','full_house','sequencia_baixa','sequencia_alta','cinco_iguais']
 guardados = []
@@ -82,54 +83,63 @@ while rodada <= 12:
         else:
             print ( "Opção inválida. Tente novamente.")
             option = input('> ')
+
+
     if option == '0':
         lista_dados += guardados
         print ("Digite a combinação desejada:")
-        categoria = input("> ")
-        if categoria not in lista_categorias:
-            print ("Combinação inválida. Tente novamente.")
+        checa_categoria = -1
+        #laço
+        while checa_categoria == -1:
             categoria = input("> ")
-        else:
-            for i in range (7):
-                if categoria == f'{i}':
-                    categoria = i
+            while categoria not in lista_categorias:
+                print ("Combinação inválida. Tente novamente.")
+                categoria = input("> ")
+            if categoria in lista_n_2:
+                for i in range (7):
+                    if categoria == f'{i}':
+                        categoria = i
+            # laço para ver se categoria está ocupada
             for regra, dicio in cartela.items():
                 for categorias, valor in dicio.items():
                     if categoria in lista_n:
-                        if regra == 'regra_simples':
-                            if categoria == categorias:
-                                if valor != -1:
-                                    print ("Essa combinação já foi utilizada.")
-                                    print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-                                    option = input('> ')
-                                    break
-                                else:
-                                    funcoes.faz_jogada(lista_dados, categoria, cartela)
-                                    lista_dados = [0, 0, 0, 0, 0]
-                                    guardados = []
-                                    break
+                        if categoria == categorias:
+                            if valor != -1:
+                                print ("Essa combinação já foi utilizada.")
+                                checa_categoria = -1
+                                break
+                            else:
+                                funcoes.faz_jogada(lista_dados, categoria, cartela)
+                                lista_dados = [0, 0, 0, 0, 0]
+                                guardados = []
+                                checa_categoria = 0
+                                break
                     if categoria in lista_x:
-                        if regra == 'regra_avancada':
-                            if categoria == categorias:
-                                if valor != -1:
-                                    print ("Essa combinação já foi utilizada.")
-                                    print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-                                    option = input('> ')
-                                    break
-                                else:
-                                    funcoes.faz_jogada(lista_dados, categoria, cartela)
-                                    lista_dados = [0, 0, 0, 0, 0]
-                                    guardados = []
-                                    break
+                        if categoria == categorias:
+                            if valor != -1:
+                                print ("Essa combinação já foi utilizada.")
+                                checa_categoria = -1
+                                break
+                            else:
+                                funcoes.faz_jogada(lista_dados, categoria, cartela)
+                                lista_dados = [0, 0, 0, 0, 0]
+                                guardados = []
+                                checa_categoria = 0
+                                break
     rodada += 1
 pontuação = 0
-for a_s, dicio in cartela.items():
-        if a_s == 'regra_simples':
-            for categoria, valor in dicio.items():
-                pontuação += valor
-        if a_s == 'regra_avancada':
-            for categoria, valor in dicio.items():
-                pontuação += valor
+for regras, dicio in cartela.items():
+    for categoria, valor in dicio.items():
+        pontuação += valor
 
-print (funcoes.imprime_cartela(cartela))
+pontuação_simples = 0
+for regras, dicio in cartela.items():
+    if regras == 'regra_simples':
+        for categoria, valor in dicio.items():
+                pontuação_simples += valor
+
+if pontuação_simples >= 63:
+    pontuação += 35
+
+funcoes.imprime_cartela(cartela)
 print (f"Pontuação total: {pontuação}")
