@@ -25,6 +25,7 @@ lista_n = [1, 2, 3, 4, 5, 6]
 lista_x = ['sem_combinacao','quadra','full_house','sequencia_baixa','sequencia_alta','cinco_iguais']
 guardados = []
 while rodada <= 12:
+    funcoes.imprime_cartela(cartela)
     rodou = 1
     w = 0
     for a_s, dicio in cartela.items():
@@ -35,54 +36,54 @@ while rodada <= 12:
     if w == 0:
         break
     lista_dados = funcoes.rolar_dados(len(lista_dados))
-    print (f'dados rolados {lista_dados}')
-    print (f'dados guardados {guardados}')
+    print (f'Dados rolados: {lista_dados}')
+    print (f'Dados guardados: {guardados}')
     print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-    option = input('> ')
+    option = input('>')
     while option != '0':
         if option == '1':
             print ("Digite o índice do dado a ser guardado (0 a 4):")
-            n_dado = int(input('> '))
+            n_dado = int(input(''))
             dados_rodada = funcoes.guardar_dado (lista_dados, guardados, n_dado)
             lista_dados = dados_rodada [0]
             guardados = dados_rodada [1]
-            print (f'dados rolados {lista_dados}')
-            print (f'dados guardados {guardados}')
+            print (f'Dados rolados: {lista_dados}')
+            print (f'Dados guardados: {guardados}')
             print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-            option = input('> ')
+            option = input('>')
         elif option == '2':
             print ("Digite o índice do dado a ser guardado (0 a 4):")
-            n_dado = int(input('> '))
+            n_dado = int(input('>'))
             dados_rodada = funcoes.remover_dado (lista_dados, guardados, n_dado)
             lista_dados = dados_rodada [0]
             guardados = dados_rodada [1]
-            print (f'dados rolados {lista_dados}')
-            print (f'dados guardados {guardados}')
+            print (f'Dados rolados: {lista_dados}')
+            print (f'Dados guardados: {guardados}')
             print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-            option = input('> ')
+            option = input('>')
         elif option == '3':
             rodou += 1
             if rodou > 3:
                 print ("Você já usou todas as rerrolagens.")
-                print (f'dados rolados {lista_dados}')
-                print (f'dados guardados {guardados}')
+                print (f'Dados rolados: {lista_dados}')
+                print (f'Dados guardados: {guardados}')
                 print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-                option = input('> ')
+                option = input('>')
             else:
                 lista_dados = funcoes.rolar_dados(len(lista_dados))
-                print (f'dados rolados {lista_dados}')
-                print (f'dados guardados {guardados}')
+                print (f'Dados rolados: {lista_dados}')
+                print (f'Dados guardados: {guardados}')
                 print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-                option = input('> ')
+                option = input('>')
         elif option == '4':
             funcoes.imprime_cartela(cartela)
-            print (f'dados rolados {lista_dados}')
-            print (f'dados guardados {guardados}')
+            print (f'Dados rolados: {lista_dados}')
+            print (f'Dados guardados: {guardados}')
             print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-            option = input('> ')
+            option = input('>')
         else:
             print ( "Opção inválida. Tente novamente.")
-            option = input('> ')
+            option = input('>')
 
 
     if option == '0':
@@ -91,10 +92,10 @@ while rodada <= 12:
         checa_categoria = -1
         #laço
         while checa_categoria == -1:
-            categoria = input("> ")
+            categoria = input(">")
             while categoria not in lista_categorias:
                 print ("Combinação inválida. Tente novamente.")
-                categoria = input("> ")
+                categoria = input(">")
             if categoria in lista_n_2:
                 for i in range (7):
                     if categoria == f'{i}':
