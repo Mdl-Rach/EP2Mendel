@@ -215,7 +215,7 @@ def faz_jogada (lista_dados, categoria, cartela):
         cartela['regra_avancada'][categoria] = dicio_avancada[categoria]
     return cartela
 # Questão 13
-def imprime_cartela(cartela):
+def imprime_cartela(cartela) :
     print("Cartela de Pontos:")
     print("-"*25)    
     for i in range(1, 7):
