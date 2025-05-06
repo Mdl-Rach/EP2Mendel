@@ -52,7 +52,7 @@ while rodada <= 12:
             print ("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
             option = input('>')
         elif option == '2':
-            print ("Digite o índice do dado a ser guardado (0 a 4):")
+            print ("Digite o índice do dado a ser removido (0 a 4):")
             n_dado = int(input('>'))
             dados_rodada = funcoes.remover_dado (lista_dados, guardados, n_dado)
             lista_dados = dados_rodada [0]
